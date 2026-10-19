@@ -3,9 +3,8 @@
 Holographic trading-card widgets for Flutter.
 
 `radiant_card` renders any widget as a card lit by a Phong fragment shader, so it picks up a
-gloss highlight that moves as you tilt the device — the effect popularised by
-[deck-24abcd.netlify.app](https://deck-24abcd.netlify.app). A mask image controls where the
-card is shiny, which is what gives foil and holo patterns their look.
+gloss highlight that moves as you tilt the device. A mask image controls where the card is
+shiny, which is what gives foil and holo patterns their look.
 
 ## Platform support
 
@@ -80,6 +79,11 @@ A runnable demo lives in [`example/`](example):
 cd example
 flutter run
 ```
+
+## Origin
+
+This package started at [DevArtel/radiant_card](https://github.com/DevArtel/radiant_card), which
+holds the original development history from 2022–2023.
 
 ## Contributing
 
