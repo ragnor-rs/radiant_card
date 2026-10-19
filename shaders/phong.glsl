@@ -1,5 +1,14 @@
 #version 320 es
 
+// The Phong lighting model below — the Ka/Kd/Ks/shininessVal uniforms and the
+// ambient + Lambertian diffuse + specular terms in main() — is derived from the
+// educational WebGL Phong applet by Prof. Thorsten Thormaehlen
+// (https://multivis.net/lecture/phong.html), modified by Johannes Kehrer and
+// Alec Jacobson (https://www.cs.toronto.edu/~jacobson/phong-demo/).
+//
+// The mask sampling, hue shift and world-space positioning are original to
+// radiant_card. See the Third-party code section of LICENSE.
+
 precision mediump float;
 
 out vec4 fragColor;
@@ -21,6 +30,10 @@ uniform sampler2D mainTexture; // image texture
 uniform sampler2D maskTexture; // mask texture
 
 
+// Branchless RGB <-> HSV conversion by Sam Hocevar, from "Fast branchless RGB
+// to HSV conversion in GLSL" (2013), originally published at
+// http://lolengine.net/blog/2013/07/27/rgb-to-hsv-in-glsl and mirrored at
+// https://gist.github.com/983/e170a24ae8eba2cd174f
 vec3 rgb2hsv(vec3 c) {
     vec4 K = vec4(0.0, -1.0 / 3.0, 2.0 / 3.0, -1.0);
     vec4 p = mix(vec4(c.bg, K.wz), vec4(c.gb, K.xy), step(c.b, c.g));

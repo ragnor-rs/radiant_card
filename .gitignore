@@ -32,15 +32,12 @@ migrate_working_dir/
 .pub/
 /build/
 
+# Libraries should not commit a lockfile
+/pubspec.lock
+
 # Symbolication related
 app.*.symbols
 
 # Obfuscation related
 app.*.map.json
 
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
-
-/example/assets/images/den.jpg

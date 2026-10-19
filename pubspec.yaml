@@ -1,8 +1,17 @@
 name: radiant_card
-description: Just this https://deck-24abcd.netlify.app in flutter
-repository: https://github.com/DevArtel/radiant_card
+description: >-
+  Holographic trading-card widgets for Flutter. Applies a Phong-shaded fragment
+  program to any widget, with gloss that reacts to device orientation.
+repository: https://github.com/ragnor-rs/radiant_card
+issue_tracker: https://github.com/ragnor-rs/radiant_card/issues
 
-version: 0.1.1+101
+version: 0.1.2
+
+topics:
+  - shader
+  - card
+  - animation
+  - graphics
 
 environment:
   sdk: ">=2.18.0 <4.0.0"

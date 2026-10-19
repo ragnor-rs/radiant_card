@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2023 Dev Artel
+Copyright (c) 2022-2026 radiant_card contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,32 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+Third-party code
+----------------
+
+The copyright notice above does not cover the following, which is the work of
+others and is included with attribution:
+
+shaders/phong.glsl
+  The Phong lighting model (the Ka/Kd/Ks/shininessVal uniforms and the ambient,
+  Lambertian diffuse and specular terms) is derived from the educational WebGL
+  Phong applet by Prof. Thorsten Thormaehlen
+  (https://multivis.net/lecture/phong.html), as modified by Johannes Kehrer and
+  Alec Jacobson (https://www.cs.toronto.edu/~jacobson/phong-demo/). The upstream
+  applet states no license; it is reproduced here with attribution only.
+
+shaders/phong.glsl
+  The rgb2hsv and hsv2rgb functions are by Sam Hocevar, from "Fast branchless
+  RGB to HSV conversion in GLSL" (2013), originally published at
+  http://lolengine.net/blog/2013/07/27/rgb-to-hsv-in-glsl and mirrored at
+  https://gist.github.com/983/e170a24ae8eba2cd174f. The original post states no
+  license; it is reproduced here with attribution only, as is conventional for
+  this snippet.
+
+example/
+  The platform scaffolding under example/android, example/ios, example/linux,
+  example/macos and example/windows is unmodified output of the `flutter create`
+  templates, which are Copyright 2014 The Flutter Authors and licensed under the
+  BSD 3-Clause License (https://github.com/flutter/flutter/blob/master/LICENSE).

@@ -62,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text('Cards demo'),
       ),
       body: ImageContextWidget(
-        imageFiles: const ["assets/images/pikachu.png", "assets/images/mask_1.png"], // todo maybe remove first image
+        imageFiles: const ["assets/images/mask_1.png"],
         builder: (context, images) {
           return LayoutBuilder(builder: (context, constraints) {
             final containerWidth = constraints.maxWidth;
@@ -89,12 +89,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   final cardCenterWorldYCoord = (cardCenterContainerYCoord - _scrollPosition) * _viewportWidth / containerWidth;
 
                   return WidgetToImageBuilder(
-                    child: const AttaboyWidget(),
+                    child: const DemoCardFace(),
                     builder: (context, widgetImage) => widgetImage == null
                         ? const SizedBox.shrink()
                         : RotatableShadedCard(
                             mainTexture: widgetImage,
-                            mask: images[1],
+                            mask: images[0],
                             centerPos: Vector3(cardCenterWorldXCoord, cardCenterWorldYCoord, 0),
                             worldSize: Size(cardWidth / containerWidth * _viewportWidth, cardHeight / containerWidth * _viewportWidth),
                           ),
@@ -117,22 +117,33 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class AttaboyWidget extends StatelessWidget {
-  const AttaboyWidget({
+/// The face of the demo card.
+///
+/// Rendered to a texture by [WidgetToImageBuilder] and fed to the shader, so it
+/// can be any widget tree. The [Marquee] keeps animating once the card is a
+/// texture, which demonstrates that the capture is continuous rather than a
+/// one-off snapshot.
+class DemoCardFace extends StatelessWidget {
+  const DemoCardFace({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.blue,
       alignment: Alignment.center,
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Color(0xFF002050), Color(0xFF7B2FF7), Color(0xFF00C2A8)],
+        ),
+      ),
       child: Stack(
         fit: StackFit.expand,
         children: [
-          Image.asset(
-            'assets/images/den.jpg', // TODO make sure this image exists
-            fit: BoxFit.cover,
+          const Center(
+            child: Icon(Icons.auto_awesome, size: 96, color: Colors.white),
           ),
           Positioned(
             bottom: 80,
@@ -142,7 +153,7 @@ class AttaboyWidget extends StatelessWidget {
               color: Colors.black,
               height: 48,
               child: Marquee(
-                text: "УКЛАДКА ДЕРЖИТСЯ ИДЕАЛЬНО",
+                text: "RADIANT CARD",
                 crossAxisAlignment: CrossAxisAlignment.center,
                 style: const TextStyle(fontSize: 24, color: Colors.white, fontWeight: FontWeight.bold),
                 blankSpace: 32.0,
