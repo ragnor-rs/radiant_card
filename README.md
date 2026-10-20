@@ -3,14 +3,17 @@
 Holographic trading-card widgets for Flutter.
 
 `radiant_card` renders any widget as a card lit by a Phong fragment shader, so it picks up a
-gloss highlight that moves as you tilt the device. A mask image controls where the card is
+gloss highlight that moves as you drag across the card. A mask image controls where the card is
 shiny, which is what gives foil and holo patterns their look.
 
 ## Platform support
 
-Fragment shaders require Impeller or a Skia backend with shader support. Verified on **Android**
-and **iOS**. Desktop may work; **Flutter web is not supported**. Orientation-driven tilt relies on
-device sensors, so on platforms without them you should drive `ShadedCard.normal` yourself.
+Fragment shaders require Impeller or a Skia backend with shader support. Verified on **Android**,
+**iOS** and **macOS**; **Flutter web is not supported**.
+
+`RotatableShadedCard` takes its tilt from a drag gesture, so it behaves the same under a finger or
+a mouse and needs no device sensors. To drive the tilt from something else — an animation, or a
+real accelerometer — use `ShadedCard` and pass a `normal` yourself.
 
 ## Install
 

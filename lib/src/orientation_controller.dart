@@ -32,7 +32,14 @@ class _OrientationControllerState extends State<OrientationController> {
             child: widget.builder(context, normal),
             onPanUpdate: (details) {
               setState(() {
-                _pointerPosition = details.localPosition - center;
+                // Accumulate the drag rather than tracking the pointer's absolute
+                // position, so merely pressing the card leaves the tilt alone and
+                // only actual movement turns it. Clamped to the card's half-extents
+                // to keep the reachable range the same across repeated drags.
+                _pointerPosition = Offset(
+                  (_pointerPosition.dx + details.delta.dx).clamp(-center.dx, center.dx),
+                  (_pointerPosition.dy + details.delta.dy).clamp(-center.dy, center.dy),
+                );
               });
             },
           );

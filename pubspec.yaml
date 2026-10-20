@@ -1,7 +1,7 @@
 name: radiant_card
 description: >-
   Holographic trading-card widgets for Flutter. Applies a Phong-shaded fragment
-  program to any widget, with gloss that reacts to device orientation.
+  program to any widget, with gloss that reacts as you drag across the card.
 repository: https://github.com/ragnor-rs/radiant_card
 issue_tracker: https://github.com/ragnor-rs/radiant_card/issues
 

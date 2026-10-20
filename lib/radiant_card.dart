@@ -1,7 +1,7 @@
 /// Holographic trading-card widgets for Flutter.
 ///
 /// Renders any widget as a card lit by a Phong fragment shader, so it picks up a
-/// gloss highlight that moves as you tilt the device.
+/// gloss highlight that moves as you drag across the card.
 ///
 /// This package started at
 /// [DevArtel/radiant_card](https://github.com/DevArtel/radiant_card), which holds

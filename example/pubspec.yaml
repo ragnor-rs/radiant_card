@@ -6,7 +6,7 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.18.5 <4.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   flutter:
@@ -17,8 +17,8 @@ dependencies:
   radiant_card:
     path: '../'
 
-  vector_math: 2.1.4
-  marquee: ^2.2.3
+  vector_math: ^2.1.4
+  marquee: ^2.3.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0

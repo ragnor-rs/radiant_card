@@ -19,7 +19,7 @@ cd example && flutter pub get && flutter run
 ```
 
 The example app is the main way to exercise the package. Shaders do not work on Flutter web, so
-run it on a physical Android or iOS device.
+run it on Android, iOS or macOS — `flutter run -d macos` is the quickest loop.
 
 The `shaders/phong.glsl` fragment program is compiled by Flutter at build time via the `shaders:`
 section of `pubspec.yaml` — there is no separate compile step.
